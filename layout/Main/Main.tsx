@@ -1,10 +1,11 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
+import cn from 'classnames';
 import { MainProps } from './Main.props';
 import s from './Main.module.css';
 
-export default function Main({ children }: MainProps): JSX.Element {
+export default function Main({ children, className }: MainProps): JSX.Element {
 	return (
-		<main>
+		<main className={cn(s.main, className)}>
 			{children}
 		</main>
 	)

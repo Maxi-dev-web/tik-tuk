@@ -119,3 +119,228 @@
     flex-direction: column;
   }
 } */
+
+
+.title {
+  transform: translateX(54px);
+  font-size: 58px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.container {
+  width: 100%;
+}
+.firstSection {
+  display: flex;
+}
+.fsLeft {
+  max-width: 485px;
+  flex: 1;
+     align-self: self-end;
+}
+.fsRight {
+  flex: 1;
+  max-width: 682px;
+  margin-left: auto;
+}
+.whiteCardWrapper {
+  display: flex;
+  flex-direction: column;
+  
+  background: #FFFFFF;
+  padding: 27px 37px;
+  border-radius:35px;
+  box-shadow: 0px 2.84946px 28.4946px rgba(0, 0, 0, 0.25);
+}
+.cardTop {
+  display: flex;
+  align-items: center;
+}
+
+.cardPersonInfo {
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.cardPersonInfo span {
+  font-weight: 400;
+}
+
+.cardBottom {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 23px;
+  max-width: 310px;
+  width: 100%;
+  margin-left: auto;
+  text-align: center;
+  font-style: italic;
+}
+.fsRightTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 300;
+  font-size: 34px;
+}
+.currencyWrapperCard {
+  display: flex;
+  box-shadow: 0px 4px 28.49px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  padding: 41px 59px;
+  background-color: var(--primary);
+  flex-wrap: wrap;
+}
+
+.currencyWrapperTitle {
+  color: var(--text-white-color);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 110%;
+  margin-right: 19px;
+  max-height: 90px;
+  max-width: 292px;
+  width: calc(50% - 19px);
+}
+.currencyCard {
+  display: flex;
+  border-radius: 20px;
+  padding: 17px 26px;
+  flex-direction: column;
+  background: #FFFFFF;
+  width: 50%;
+  max-width: 255px;
+  margin-top: 42px;
+  margin-left: auto;
+}
+.offseted {
+  margin-top: -25px;
+  margin-left: 0;
+}
+.currencyCardTitle,
+.currencyCardPrice {
+ color: #12121F;
+}
+
+
+.currencyCardTitle {
+ font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  margin-bottom: 19px;
+}
+.currencyCardDescription {
+  color: #AFAFBD;
+  font-size: 12px;
+line-height: 14px;
+font-weight: 400;
+}
+.currencyCardPrice {
+  font-weight: 600;
+font-size: 23px;
+line-height: 28px;
+margin-bottom: 10px;
+}
+.currencyCardVector {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  margin-left: 12px;
+}
+.up {
+  color: var(--orange);
+}
+.down {
+  color: var(--primary-light);
+  
+}
+
+@media (max-width: 1230px) {
+  .firstSection {
+    /* flex-direction: column-reverse; */
+    /* align-items: center; */
+  }
+  .fsLeft {
+    /* align-self: center; */
+
+  }
+  .fsRight {
+    /* margin: 0 auto 30px; */
+    margin-left: 35px;
+  }
+  .currencyWrapperCard {
+    flex-direction: column;
+
+  }
+  .currencyWrapperTitle {
+        /* max-width: 292px; */
+  width: 100%;
+  }
+  .currencyCard {
+    margin-top: 20px;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .offseted {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 976px) {
+  .title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    transform: translateX(0);
+  }
+  .firstSection {
+    flex-direction: column-reverse;
+  }
+  .fsLeft {
+    align-self: center;
+  }
+  .fsRight {
+    margin: 0 auto 30px;
+  }
+    .cardBottom {
+    margin: 15px auto 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 48px;
+  }
+
+  .currencyWrapperCard {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 476px) {
+    .title {
+    font-size: 38px;
+  }
+  .currencyWrapperCard {
+    padding: 30px;
+  }
+  .cardTop {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cardPersonInfo {
+    margin-top: 15px;
+    margin-left: 0;
+  }
+  .currencyCard {
+    padding: 17px 15px;
+  }
+  .fsRightTitle {
+    font-size: 28px;
+  }
+}
+@media (max-width: 375px) {
+  .currencyWrapperTitle {
+    font-size: 32px;
+  }
+  
+}

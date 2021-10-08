@@ -1,0 +1,32 @@
+.footer {
+	display: flex;
+}
+
+.footerInner {
+	max-width: 655px;
+	margin: 0 auto;
+	padding: 34px 10px;
+	text-align: center;
+}
+
+.footerReminder {
+	font-weight: 200;
+	line-height: 110%;
+	font-size: 27px;
+	margin: 15px 0;
+}
+
+
+.rights,
+.footerLink {
+	line-height: 1.8;
+	font-size: 12px;
+}
+
+.rights {
+	font-weight: 600;
+}
+
+.footerLink {
+
+}
