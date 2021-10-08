@@ -395,7 +395,7 @@
 	flex-direction: column;
 	justify-content: center;
 
-	width: 100%;
+	width: calc(100% - 69px);
 	margin-left: 15px;
 }
 
@@ -526,11 +526,12 @@
 
 	.reviewCard {
 		flex-direction: column;
-
+    padding-right: 15px;
 		border-radius: 15px;
 	}
 
 	.reviewCardBody {
+    width: 100%;
 		margin-top: 15px;
 		margin-left: 0;
 	}

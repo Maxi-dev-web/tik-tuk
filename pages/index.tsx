@@ -1,6 +1,8 @@
-import type { NextPage } from 'next'
+import type { GetStaticProps } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
 import cn from 'classnames';
+import axios from 'axios';
 import { withLayout } from '../layout/Layout';
 import { Title, Typography } from '../components';
 
@@ -16,9 +18,14 @@ import IconArrowDown from '../assets/images/homePage/arrowDown.svg';
 import IconArrowUp from '../assets/images/homePage/arrowUp.svg';
 
 import s from '../styles/Home.module.css'
-import React from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
+import { ICurrencyData } from '../interfaces/HomePage.interface';
 
-const Home: NextPage = () => {
+const Home = ({ data }: HomeProps): JSX.Element => {
+  // useEffect(() => {
+  //   console.log('data: ', data);
+  // }, [data])
+
   return (
     <div className={s.container}>
       <Title tag="h1" className={s.title}>
@@ -55,7 +62,7 @@ const Home: NextPage = () => {
                 Mobile Friendly
               </Typography>
               <Typography tag="p" className={s.currencyCardPrice}>
-                $12380<Typography tag="span" className={cn(s.currencyCardVector, s.down)}>-3.2% <IconArrowDown /></Typography>
+                ₽{Boolean(data) && data?.rates && (data.rates.RUB)}<Typography tag="span" className={cn(s.currencyCardVector, s.down)}>-3.2% <IconArrowDown /></Typography>
               </Typography>
               <Typography tag="p" className={s.currencyCardDescription}>
                 Don’t Forget About Small Devices
@@ -66,7 +73,7 @@ const Home: NextPage = () => {
                 Responsive Design
               </Typography>
               <Typography tag="p" className={s.currencyCardPrice}>
-                $19840<Typography tag="span" className={cn(s.currencyCardVector, s.up)}>+8.5% <IconArrowUp /></Typography>
+                €{Boolean(data) && data?.rates && (data.rates.EUR)}<Typography tag="span" className={cn(s.currencyCardVector, s.up)}>+8.5% <IconArrowUp /></Typography>
               </Typography>
               <Typography tag="p" className={s.currencyCardDescription}>
                 You’ll Learn A Lot From This Task
@@ -169,6 +176,20 @@ const Home: NextPage = () => {
       </section>
     </div>
   )
+}
+
+
+export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async () => {
+  const appId = process.env.NEXT_PUBLIC_API_KEY;
+  // const startTime = '2021-10-01T18:16:52.966Z'
+  const { data } = await axios.get<ICurrencyData>(`https://openexchangerates.org/api/historical/2021-10-04.json?app_id=${appId}&base=USD&show_alternative=false&prettyprint=false`)
+  return {
+    props: { data }
+  }
+}
+
+export interface HomeProps extends Record<string, unknown> {
+  data: ICurrencyData
 }
 
 export default withLayout(Home);
