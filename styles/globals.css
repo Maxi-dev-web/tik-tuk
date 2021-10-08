@@ -1,0 +1,23 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --primary: #3664D8;
+  --text-primary-color: #212353;
+  --text-white-color: #FBFBFB;
+  --orange: #FE805C;
+  --primary-light: #4643D3;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
