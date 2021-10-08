@@ -5,9 +5,18 @@ import { withLayout } from '../layout/Layout';
 import { Title, Typography } from '../components';
 
 import imgWhiteCard from '../assets/images/homePage/cardImg.png';
+import imgRevC1 from '../assets/images/homePage/reviewC1.png';
+import imgRevC2 from '../assets/images/homePage/reviewC2.png';
+import imgRevC3 from '../assets/images/homePage/reviewC3.png';
+import imgCoder1 from '../assets/images/homePage/coder1.png';
+import imgCoder2 from '../assets/images/homePage/coder2.png';
+import IconStarFilled from '../assets/images/homePage/ratingStarFilled.svg';
+import IconStarEmpty from '../assets/images/homePage/ratingStarEmpty.svg';
 import IconArrowDown from '../assets/images/homePage/arrowDown.svg';
 import IconArrowUp from '../assets/images/homePage/arrowUp.svg';
+
 import s from '../styles/Home.module.css'
+import React from 'react';
 
 const Home: NextPage = () => {
   return (
@@ -65,11 +74,99 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className={s.secondSection}>
+        <Title tag="h2" className={s.secondSectionTitle}>
+          What Pros Are Saying...
+        </Title>
+        <div className={s.testimonialsWrapper}>
+          <div className={s.testimonialCard}>
+            <Image src={imgRevC1} alt="Nia" layout="fixed" width={76} height={76} />
+            <Typography tag="span" className={s.testimonialName}>
+              Nia
+            </Typography>
+            <Typography tag="p" className={s.testimonialMessage}>
+              “This task can be perfect for students from FIT”
+            </Typography>
+          </div>
+          <div className={s.testimonialCard}>
+            <Image src={imgRevC2} alt="Nia" layout="fixed" width={76} height={76} />
+            <Typography tag="span" className={s.testimonialName}>
+              Abigale
+            </Typography>
+            <Typography tag="p" className={s.testimonialMessage}>
+              “I am so sexy, that men are doing  test tasks for me for free.”
+            </Typography>
+          </div>
+          <div className={s.testimonialCard}>
+            <Image src={imgRevC3} alt="Nia" layout="fixed" width={76} height={76} />
+            <Typography tag="span" className={s.testimonialName}>
+              Fedya
+            </Typography>
+            <Typography tag="p" className={s.testimonialMessage}>
+              “Kuku Epta. EZ Task.”
+            </Typography>
+          </div>
+        </div>
+      </section>
+      <section className={s.thirdSection}>
+        <Title tag="h2" className={s.thirdSectionTitle}>
+          What Other Coders Are Saying...
+        </Title>
+        <div className={s.reviewsWrapper}>
+          <div className={s.reviewCard}>
+            <Image src={imgCoder1} alt="Nia" layout="fixed" width={50} height={50} />
+            <div className={s.reviewCardBody}>
+              <div className={s.reviewCardBodyTop}>
+                <Typography tag="span" className={s.reviewCardTitle}>
+                  Wow, this test task is absolutely amazing! Loved it!
+                </Typography>
+                <Typography tag="span" className={s.reviewCardTime}>
+                  05:20
+                </Typography>
+              </div>
+              <div className={s.reviewCardBodyBottom}>
+                <Typography tag="span" className={s.reviewCardName}>
+                  John Kennedy
+                </Typography>
+                <div className={s.rating}>
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarFilled />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={s.reviewCard}>
+            <Image src={imgCoder2} alt="Nia" layout="fixed" width={50} height={50} />
+            <div className={s.reviewCardBody}>
+              <div className={s.reviewCardBodyTop}>
+                <Typography tag="span" className={s.reviewCardTitle}>
+                  Holy cow, developers rock, but I missed the 5 stars button.
+                </Typography>
+                <Typography tag="span" className={s.reviewCardTime}>
+                  14:30
+                </Typography>
+              </div>
+              <div className={s.reviewCardBodyBottom}>
+                <Typography tag="span" className={s.reviewCardName}>
+                  Vasiliy Igorsky
+                </Typography>
+                <div className={s.rating}>
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarFilled />
+                  <IconStarEmpty />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </section>
-      {/* <Typography tag="p">
-        adwawdawd
-      </Typography> */}
     </div>
   )
 }

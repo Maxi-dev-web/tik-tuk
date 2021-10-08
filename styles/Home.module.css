@@ -120,229 +120,453 @@
   }
 } */
 
-
 .title {
-  transform: translateX(54px);
-  font-size: 58px;
-  line-height: 1.1;
-  margin-bottom: 10px;
+	margin-bottom: 10px;
+
+	transform: translateX(54px);
+
+	font-size: 58px;
+	line-height: 1.1;
 }
+
 .container {
-  width: 100%;
+	width: 100%;
 }
+
 .firstSection {
-  display: flex;
+	display: flex;
 }
+
 .fsLeft {
-  max-width: 485px;
-  flex: 1;
-     align-self: self-end;
+	align-self: self-end;
+	flex: 1;
+
+	max-width: 485px;
 }
+
 .fsRight {
-  flex: 1;
-  max-width: 682px;
-  margin-left: auto;
+	flex: 1;
+
+	max-width: 682px;
+	margin-left: auto;
 }
+
 .whiteCardWrapper {
-  display: flex;
-  flex-direction: column;
-  
-  background: #FFFFFF;
-  padding: 27px 37px;
-  border-radius:35px;
-  box-shadow: 0px 2.84946px 28.4946px rgba(0, 0, 0, 0.25);
+	display: flex;
+	flex-direction: column;
+
+	padding: 27px 37px;
+
+	border-radius: 35px;
+
+	background: #FFF;
+	box-shadow: 0 2.84946px 28.4946px rgba(0, 0, 0, 0.25);
 }
+
 .cardTop {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .cardPersonInfo {
-  margin-left: 20px;
-  font-size: 20px;
-  font-weight: 600;
+	margin-left: 20px;
+
+	font-size: 20px;
+	font-weight: 600;
 }
+
 .cardPersonInfo span {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .cardBottom {
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 23px;
-  max-width: 310px;
-  width: 100%;
-  margin-left: auto;
-  text-align: center;
-  font-style: italic;
+	width: 100%;
+	max-width: 310px;
+	margin-left: auto;
+
+	text-align: center;
+
+	font-size: 18px;
+	font-weight: 300;
+	font-style: italic;
+	line-height: 23px;
 }
+
 .fsRightTitle {
-  text-align: center;
-  margin-bottom: 30px;
-  font-weight: 300;
-  font-size: 34px;
+	margin-bottom: 30px;
+
+	text-align: center;
+
+	font-size: 34px;
+	font-weight: 300;
 }
+
 .currencyWrapperCard {
-  display: flex;
-  box-shadow: 0px 4px 28.49px rgba(0, 0, 0, 0.25);
-  border-radius: 50px;
-  padding: 41px 59px;
-  background-color: var(--primary);
-  flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
+
+	padding: 41px 59px;
+
+	border-radius: 50px;
+	background-color: var(--primary);
+	box-shadow: 0 4px 28.49px rgba(0, 0, 0, 0.25);
 }
 
 .currencyWrapperTitle {
-  color: var(--text-white-color);
-  font-weight: 800;
-  font-size: 34px;
-  line-height: 110%;
-  margin-right: 19px;
-  max-height: 90px;
-  max-width: 292px;
-  width: calc(50% - 19px);
+	width: calc(50% - 19px);
+	max-width: 292px;
+	max-height: 90px;
+	margin-right: 19px;
+
+	color: var(--text-white-color);
+
+	font-size: 34px;
+	font-weight: 800;
+	line-height: 110%;
 }
+
 .currencyCard {
-  display: flex;
-  border-radius: 20px;
-  padding: 17px 26px;
-  flex-direction: column;
-  background: #FFFFFF;
-  width: 50%;
-  max-width: 255px;
-  margin-top: 42px;
-  margin-left: auto;
+	display: flex;
+	flex-direction: column;
+
+	width: 50%;
+	max-width: 255px;
+	margin-top: 42px;
+	margin-left: auto;
+	padding: 17px 26px;
+
+	border-radius: 20px;
+	background: #FFF;
 }
+
 .offseted {
-  margin-top: -25px;
-  margin-left: 0;
-  margin-bottom: 35px;
+	margin-top: -25px;
+	margin-bottom: 35px;
+	margin-left: 0;
 }
+
 .currencyCardTitle,
 .currencyCardPrice {
- color: #12121F;
+	color: #12121F;
 }
-
 
 .currencyCardTitle {
- font-weight: 600;
-  font-size: 13px;
-  line-height: 16px;
-  margin-bottom: 19px;
+	margin-bottom: 19px;
+
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
 }
+
 .currencyCardDescription {
-  color: #AFAFBD;
-  font-size: 12px;
-line-height: 14px;
-font-weight: 400;
+	color: #AFAFBD;
+
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 14px;
 }
+
 .currencyCardPrice {
-  font-weight: 600;
-font-size: 23px;
-line-height: 28px;
-margin-bottom: 10px;
+	margin-bottom: 10px;
+
+	font-size: 23px;
+	font-weight: 600;
+	line-height: 28px;
 }
+
 .currencyCardVector {
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 16px;
-  margin-left: 12px;
+	margin-left: 12px;
+
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 16px;
 }
+
 .up {
-  color: var(--orange);
+	color: var(--orange);
 }
+
 .down {
-  color: var(--primary-light);
-  
+	color: var(--primary-light);
+}
+
+.secondSection {
+	margin-top: 113px;
+}
+
+.secondSectionTitle {
+	margin-bottom: 55px;
+
+	text-align: center;
+
+	font-size: 33px;
+	font-weight: 700;
+	line-height: 47px;
+}
+
+.testimonialsWrapper {
+	display: flex;
+	justify-content: center;
+
+	max-width: 805px;
+	margin: 0 auto;
+}
+
+.testimonialCard {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	width: 100%;
+	max-width: 250px;
+	padding: 26px 26px 37px;
+
+	text-align: center;
+
+	border-radius: 22px;
+	background: #FFF;
+	filter: drop-shadow(0 69.5875px 139.175px rgba(0, 0, 0, 0.08)) drop-shadow(0 14.65px 43.95px rgba(0, 0, 0, 0.06));
+}
+
+.testimonialCard:not(:first-child) {
+	margin-left: 28px;
+}
+
+.testimonialName,
+.testimonialMessage {
+	color: #000;
+}
+
+.testimonialName {
+	display: inline-block;
+
+	margin-top: 10px;
+	margin-bottom: 26px;
+
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 22px;
+}
+
+.testimonialMessage {
+	display: flex;
+	align-items: center;
+	flex: 1;
+
+	font-size: 18px;
+	font-weight: 300;
+	line-height: 22px;
+}
+
+.thirdSectionTitle {
+	margin-top: 72px;
+	margin-bottom: 72px;
+
+	text-align: center;
+
+	font-size: 33px;
+	font-weight: 700;
+	line-height: 47px;
+}
+
+.reviewsWrapper {
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	max-width: 660px;
+	margin: 0 auto;
+}
+
+.reviewCard {
+	display: flex;
+
+	margin-bottom: 25px;
+	padding: 15px 36px 15px 15px;
+
+	border-radius: 75px;
+	background: #3664D8;
+	background-color: var(--primary);
+	filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25));
+}
+
+.reviewCardBody {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 100%;
+	margin-left: 15px;
+}
+
+.reviewCardTitle {
+	padding-right: 10px;
+
+	letter-spacing: 0.25px;
+
+	color: #FFF;
+
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.reviewCardTime {
+	letter-spacing: 0.25px;
+
+	opacity: 0.5;
+	color: #FFF;
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.reviewCardBodyTop {
+	margin-bottom: 5px;
+}
+
+.reviewCardBodyTop,
+.reviewCardBodyBottom {
+	display: flex;
+	justify-content: space-between;
+}
+
+.reviewCardName {
+	letter-spacing: 0.25px;
+
+	opacity: 0.5;
+	color: #FFF;
+
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.rating svg {
+	margin-left: 3px;
 }
 
 @media (max-width: 1230px) {
-  .firstSection {
-    /* flex-direction: column-reverse; */
-    /* align-items: center; */
-  }
-  .fsLeft {
-    /* align-self: center; */
+	.fsRight {
+		margin-left: 35px;
+	}
 
-  }
-  .fsRight {
-    /* margin: 0 auto 30px; */
-    margin-left: 35px;
-  }
-  .currencyWrapperCard {
-    flex-direction: column;
+	.currencyWrapperCard {
+		flex-direction: column;
+	}
 
-  }
-  .currencyWrapperTitle {
-        /* max-width: 292px; */
-  width: 100%;
-  }
-  .currencyCard {
-    margin-top: 20px;
-    margin-left: 0;
-    width: 100%;
-    max-width: 100%;
-  }
-  .offseted {
-    margin-top: 20px;
-    margin-bottom: 0;
-  }
+	.currencyWrapperTitle {
+		width: 100%;
+	}
+
+	.currencyCard {
+		width: 100%;
+		max-width: 100%;
+		margin-top: 20px;
+		margin-left: 0;
+	}
+
+	.offseted {
+		margin-top: 20px;
+		margin-bottom: 0;
+	}
 }
 
 @media (max-width: 976px) {
-  .title {
-    margin-top: 0;
-    margin-bottom: 30px;
-    transform: translateX(0);
-  }
-  .firstSection {
-    flex-direction: column-reverse;
-  }
-  .fsLeft {
-    align-self: center;
-  }
-  .fsRight {
-    margin: 0 auto 30px;
-  }
-    .cardBottom {
-    margin: 15px auto 0;
-  }
+	.title {
+		margin-top: 0;
+		margin-bottom: 30px;
+
+		transform: translateX(0);
+	}
+
+	.firstSection {
+		flex-direction: column-reverse;
+	}
+
+	.fsLeft {
+		align-self: center;
+	}
+
+	.fsRight {
+		margin: 0 auto 30px;
+	}
+
+	.cardBottom {
+		margin: 15px auto 0;
+	}
+
+	.testimonialCard {
+		padding: 26px 15px 35px;
+	}
 }
 
 @media (max-width: 576px) {
-  .title {
-    font-size: 48px;
-  }
+	.title {
+		font-size: 48px;
+	}
 
-  .currencyWrapperCard {
-    padding: 30px;
-  }
+	.currencyWrapperCard {
+		padding: 30px;
+	}
+
+	.secondSection {
+		margin-top: 80px;
+	}
+
+	.testimonialsWrapper {
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.testimonialCard:not(:first-child) {
+		margin-top: 20px;
+		margin-left: 0;
+	}
+
+	.reviewCard {
+		flex-direction: column;
+
+		border-radius: 15px;
+	}
+
+	.reviewCardBody {
+		margin-top: 15px;
+		margin-left: 0;
+	}
 }
 
 @media (max-width: 476px) {
-    .title {
-    font-size: 38px;
-  }
-  .currencyWrapperCard {
-    padding: 30px;
-  }
-  .cardTop {
-    flex-direction: column;
-    text-align: center;
-  }
-  .cardPersonInfo {
-    margin-top: 15px;
-    margin-left: 0;
-  }
-  .currencyCard {
-    padding: 17px 15px;
-  }
-  .fsRightTitle {
-    font-size: 28px;
-  }
+	.title {
+		font-size: 38px;
+	}
+
+	.currencyWrapperCard {
+		padding: 30px;
+	}
+
+	.cardTop {
+		flex-direction: column;
+
+		text-align: center;
+	}
+
+	.cardPersonInfo {
+		margin-top: 15px;
+		margin-left: 0;
+	}
+
+	.currencyCard {
+		padding: 17px 15px;
+	}
+
+	.fsRightTitle {
+		font-size: 28px;
+	}
 }
+
 @media (max-width: 375px) {
-  .currencyWrapperTitle {
-    font-size: 32px;
-  }
-  
+	.currencyWrapperTitle {
+		font-size: 32px;
+	}
 }
