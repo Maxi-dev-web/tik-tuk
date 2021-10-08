@@ -1,10 +1,11 @@
+import React from 'react';
 import { withLayout } from '../layout/Layout';
 import type { GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
+import Head from 'next/head';
 import cn from 'classnames';
 import axios from 'axios';
-import React from 'react';
 import { Title, Typography } from '../components';
 import { ICurrencyData } from '../interfaces/HomePage.interface';
 
@@ -28,6 +29,13 @@ const Home = ({ data }: HomeProps): JSX.Element => {
 
   return (
     <div className={s.container}>
+    <Head>
+      <title>Test Task</title>
+        <meta name="description" content="Ohh, shit! Here we go again!" />
+        <meta property="og:title" content="Test Task" />
+        <meta property="og:description" content="Just click and relax!" />
+        <meta property="og:type" content="article" />
+    </Head>
       <Title tag="h1" className={s.title}>
         Do The Task <br />And Have Fun
       </Title>
