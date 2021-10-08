@@ -1,10 +1,12 @@
+import { withLayout } from '../layout/Layout';
 import type { GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
 import cn from 'classnames';
 import axios from 'axios';
-import { withLayout } from '../layout/Layout';
+import React from 'react';
 import { Title, Typography } from '../components';
+import { ICurrencyData } from '../interfaces/HomePage.interface';
 
 import imgWhiteCard from '../assets/images/homePage/cardImg.png';
 import imgRevC1 from '../assets/images/homePage/reviewC1.png';
@@ -18,8 +20,6 @@ import IconArrowDown from '../assets/images/homePage/arrowDown.svg';
 import IconArrowUp from '../assets/images/homePage/arrowUp.svg';
 
 import s from '../styles/Home.module.css'
-import React, { FunctionComponent, useEffect } from 'react';
-import { ICurrencyData } from '../interfaces/HomePage.interface';
 
 const Home = ({ data }: HomeProps): JSX.Element => {
   // useEffect(() => {
