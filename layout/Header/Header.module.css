@@ -5,7 +5,7 @@
 }
 .headerInner {
 	max-width: 1231px;
-	padding: 0 54px;
+	padding: 0 63px;
 	display: flex;
 	height: 100%;
 	margin: 0 auto;
@@ -23,7 +23,7 @@
 	display: flex;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 975px) {
 	.headerInner {
 		padding: 0 10px;
 	}

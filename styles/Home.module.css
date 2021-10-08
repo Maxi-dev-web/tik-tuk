@@ -215,6 +215,7 @@
 .offseted {
   margin-top: -25px;
   margin-left: 0;
+  margin-bottom: 35px;
 }
 .currencyCardTitle,
 .currencyCardPrice {
@@ -283,6 +284,7 @@ margin-bottom: 10px;
   }
   .offseted {
     margin-top: 20px;
+    margin-bottom: 0;
   }
 }
 
