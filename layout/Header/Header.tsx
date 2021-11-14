@@ -8,14 +8,13 @@ import s from './Header.module.css';
 import { HeaderProps } from './Header.props';
 
 
-
 export default function Header({ }: HeaderProps): JSX.Element {
 	return (
 		<header className={s.header}>
 			<div className={s.headerInner}>
 				<NavLink href="/">
 					<a className={s.logo}>
-						<IconLogo /><Typography tag="p" className={s.logoText}>Test Task</Typography>
+						<IconLogo /><Typography tag="p" className={s.logoText}>Tik Tuk</Typography>
 					</a>
 				</NavLink>
 			</div>

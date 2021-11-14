@@ -1,203 +1,153 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withLayout } from '../layout/Layout';
 import type { GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
 import Head from 'next/head';
+import Link from 'next/link';
 import cn from 'classnames';
 import axios from 'axios';
 import { Title, Typography } from '../components';
-import { ICurrencyData } from '../interfaces/HomePage.interface';
+import { Hashtag, iVideo } from '../interfaces/HomePage.interface';
 
-import imgWhiteCard from '../assets/images/homePage/cardImg.png';
-import imgRevC1 from '../assets/images/homePage/reviewC1.png';
-import imgRevC2 from '../assets/images/homePage/reviewC2.png';
-import imgRevC3 from '../assets/images/homePage/reviewC3.png';
-import imgCoder1 from '../assets/images/homePage/coder1.png';
-import imgCoder2 from '../assets/images/homePage/coder2.png';
-import IconStarFilled from '../assets/images/homePage/ratingStarFilled.svg';
-import IconStarEmpty from '../assets/images/homePage/ratingStarEmpty.svg';
-import IconArrowDown from '../assets/images/homePage/arrowDown.svg';
-import IconArrowUp from '../assets/images/homePage/arrowUp.svg';
+// import imgWhiteCard from '../assets/images/homePage/cardImg.png';
+// import imgRevC1 from '../assets/images/homePage/reviewC1.png';
+// import imgRevC2 from '../assets/images/homePage/reviewC2.png';
+// import imgRevC3 from '../assets/images/homePage/reviewC3.png';
+// import imgCoder1 from '../assets/images/homePage/coder1.png';
+// import imgCoder2 from '../assets/images/homePage/coder2.png';
+// import IconStarFilled from '../assets/images/homePage/ratingStarFilled.svg';
+// import IconStarEmpty from '../assets/images/homePage/ratingStarEmpty.svg';
+// import IconArrowDown from '../assets/images/homePage/arrowDown.svg';
+// import IconArrowUp from '../assets/images/homePage/arrowUp.svg';
 
-import s from '../styles/Home.module.css'
+import s from '../styles/Home.module.scss';
+
+const options = {
+  method: 'GET',
+  url: 'https://tiktok33.p.rapidapi.com/trending/feed',
+  headers: {
+    'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
+    'x-rapidapi-key': '4680d87a36mshb66d274f2092123p16bc5ajsn49af35a157db'
+  }
+};
 
 const Home = ({ data }: HomeProps): JSX.Element => {
-  // useEffect(() => {
-  //   console.log('data: ', data);
-  // }, [data])
+  console.log('data: ', data);
+  const [videoData, setVideoData] = useState<iVideo[]>([])
+
+
+  useEffect(() => {
+    (async () => {
+      // const { data } = await axios.request(options);
+      // setVideoData(data);
+    })()
+
+  }, [])
+
+
+  useEffect(() => {
+    // console.log('videoData: ', videoData);
+  }, [videoData])
 
   return (
     <div className={s.container}>
-    <Head>
-      <title>Test Task</title>
+      <Head>
+        <title>Test Task</title>
         <meta name="description" content="Ohh, shit! Here we go again!" />
         <meta property="og:title" content="Test Task" />
         <meta property="og:description" content="Just click and relax!" />
         <meta property="og:type" content="article" />
-    </Head>
-      <Title tag="h1" className={s.title}>
-        Do The Task <br />And Have Fun
-      </Title>
-      <section className={s.firstSection}>
-        <div className={s.fsLeft}>
-          <div className={s.whiteCardWrapper}>
-            <div className={s.cardTop}>
-              <Image src={imgWhiteCard} alt="Andy / Head Of UX Design" layout='fixed' width={110} height={110} />
-              <Typography tag="p" className={s.cardPersonInfo}>Andy{' '}<br />
-                <Typography tag="span">Head Of UX Design</Typography>
-              </Typography>
+      </Head>
 
-            </div>
-            <div className={s.cardBottom}>
-              <Typography tag="p" className={s.cardQuote}>“The Style Of This Test Task
-                Matches The Style That You Will
-                Be Making Real Job In.”</Typography>
-            </div>
-          </div>
-        </div>
-        <div className={s.fsRight}>
-          <Title tag="h2" className={s.fsRightTitle}>
-            Be Persistent & Attentive To Details
-          </Title>
-          <div className={s.currencyWrapperCard}>
-            <Title tag="h3" className={s.currencyWrapperTitle}>
-              Fonts & Colors
-              Matter
-            </Title>
-            <div className={s.currencyCard}>
-              <Typography tag="p" className={s.currencyCardTitle}>
-                Mobile Friendly
-              </Typography>
-              <Typography tag="p" className={s.currencyCardPrice}>
-                ₽{Boolean(data) && data?.rates && (data.rates.RUB)}<Typography tag="span" className={cn(s.currencyCardVector, s.down)}>-3.2% <IconArrowDown /></Typography>
-              </Typography>
-              <Typography tag="p" className={s.currencyCardDescription}>
-                Don’t Forget About Small Devices
-              </Typography>
-            </div>
-            <div className={cn(s.currencyCard, s.offseted)}>
-              <Typography tag="p" className={s.currencyCardTitle}>
-                Responsive Design
-              </Typography>
-              <Typography tag="p" className={s.currencyCardPrice}>
-                €{Boolean(data) && data?.rates && (data.rates.EUR)}<Typography tag="span" className={cn(s.currencyCardVector, s.up)}>+8.5% <IconArrowUp /></Typography>
-              </Typography>
-              <Typography tag="p" className={s.currencyCardDescription}>
-                You’ll Learn A Lot From This Task
-              </Typography>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className={s.secondSection}>
-        <Title tag="h2" className={s.secondSectionTitle}>
+      <section className={s.firstSection}>
+        <Title tag="h1" className={s.firstSectionTitle}>
           What Pros Are Saying...
         </Title>
-        <div className={s.testimonialsWrapper}>
-          <div className={s.testimonialCard}>
-            <Image src={imgRevC1} alt="Nia" layout="fixed" width={76} height={76} />
-            <Typography tag="span" className={s.testimonialName}>
-              Nia
-            </Typography>
-            <Typography tag="p" className={s.testimonialMessage}>
-              “This task can be perfect for students from FIT”
-            </Typography>
-          </div>
-          <div className={s.testimonialCard}>
-            <Image src={imgRevC2} alt="Nia" layout="fixed" width={76} height={76} />
-            <Typography tag="span" className={s.testimonialName}>
-              Abigale
-            </Typography>
-            <Typography tag="p" className={s.testimonialMessage}>
-              “I am so sexy, that men are doing  test tasks for me for free.”
-            </Typography>
-          </div>
-          <div className={s.testimonialCard}>
-            <Image src={imgRevC3} alt="Nia" layout="fixed" width={76} height={76} />
-            <Typography tag="span" className={s.testimonialName}>
-              Fedya
-            </Typography>
-            <Typography tag="p" className={s.testimonialMessage}>
-              “Kuku Epta. EZ Task.”
-            </Typography>
-          </div>
-        </div>
-      </section>
-      <section className={s.thirdSection}>
-        <Title tag="h2" className={s.thirdSectionTitle}>
-          What Other Coders Are Saying...
-        </Title>
-        <div className={s.reviewsWrapper}>
-          <div className={s.reviewCard}>
-            <Image src={imgCoder1} alt="Nia" layout="fixed" width={50} height={50} />
-            <div className={s.reviewCardBody}>
-              <div className={s.reviewCardBodyTop}>
-                <Typography tag="span" className={s.reviewCardTitle}>
-                  Wow, this test task is absolutely amazing! Loved it!
-                </Typography>
-                <Typography tag="span" className={s.reviewCardTime}>
-                  05:20
-                </Typography>
-              </div>
-              <div className={s.reviewCardBodyBottom}>
-                <Typography tag="span" className={s.reviewCardName}>
-                  John Kennedy
-                </Typography>
-                <div className={s.rating}>
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarFilled />
+
+        {typeof window !== 'undefined' && data?.length
+          ? data.map(video => {
+            return (
+              <div className={s.cards}>
+                <div className={s.videoCard}>
+                  <div className={s.video}>
+                    <video width={video.videoMeta.width} height={video.videoMeta.height} controls poster={video.covers.default}>
+                      <source src={video.videoUrl} type='video/mp4' />
+                      Тег video не поддерживается вашим браузером.
+                    </video>
+                  </div>
+                  
+                  <Link href="/">
+                    <a className={s.creator}>
+                      <Image src={video.authorMeta.avatar} alt={video.authorMeta.nickName} layout="fixed" width={76} height={76} />
+                      {video.authorMeta.nickName}
+                    </a>
+                  </Link>
+
+                  <Typography tag="p" className={s.videoText}>
+                    {video.text}
+                  </Typography>
+                  {video?.hashtags?.length &&
+                    <div className={s.hashTags}>
+                      {video.hashtags.map((tag: Hashtag) => {
+                        return (
+                          <Typography tag="span" data-id={tag.id} className={s.hashTag}>
+                            #{tag.name}
+                          </Typography>
+
+                        )
+                      })}
+                    </div>}
+
+                  <Typography tag="p" className={s.comments}>
+                    comments
+                  </Typography>
+                  <Typography tag="p" className={s.likes}>
+                    likes
+                  </Typography>
                 </div>
+
               </div>
-            </div>
-          </div>
-          <div className={s.reviewCard}>
-            <Image src={imgCoder2} alt="Nia" layout="fixed" width={50} height={50} />
-            <div className={s.reviewCardBody}>
-              <div className={s.reviewCardBodyTop}>
-                <Typography tag="span" className={s.reviewCardTitle}>
-                  Holy cow, developers rock, but I missed the 5 stars button.
-                </Typography>
-                <Typography tag="span" className={s.reviewCardTime}>
-                  14:30
-                </Typography>
-              </div>
-              <div className={s.reviewCardBodyBottom}>
-                <Typography tag="span" className={s.reviewCardName}>
-                  Vasiliy Igorsky
-                </Typography>
-                <div className={s.rating}>
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarFilled />
-                  <IconStarEmpty />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            );
+          })
+          : 'Loading...'
+        }
 
       </section>
+
     </div>
   )
 }
 
 
 export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async () => {
-  const appId = process.env.NEXT_PUBLIC_API_KEY;
+
   // const startTime = '2021-10-01T18:16:52.966Z'
-  const { data } = await axios.get<ICurrencyData>(`https://openexchangerates.org/api/historical/2021-10-04.json?app_id=${appId}&base=USD&show_alternative=false&prettyprint=false`)
-  return {
-    props: { data }
+  // return {
+  //   props: { data: null }
+  // }
+  try {
+    const { data } = await axios.request({
+      method: 'GET',
+      url: 'https://tiktok33.p.rapidapi.com/trending/feed',
+      headers: {
+        'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
+        'x-rapidapi-key': '4680d87a36mshb66d274f2092123p16bc5ajsn49af35a157db'
+      }
+    });
+    return {
+      props: { data }
+    }
+  } catch (e) {
+    return {
+      props: { data: `Some error ocuured ${e}` }
+    }
   }
+
 }
 
 export interface HomeProps extends Record<string, unknown> {
-  data: ICurrencyData
+  data: iVideo[]
 }
 
 export default withLayout(Home);
