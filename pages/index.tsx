@@ -5,9 +5,8 @@ import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
-import cn from 'classnames';
 import axios from 'axios';
-import { Title, Typography } from '../components';
+import { Skeleton, Title, Typography } from '../components';
 import { Hashtag, iVideo } from '../interfaces/HomePage.interface';
 
 // import imgWhiteCard from '../assets/images/homePage/cardImg.png';
@@ -62,56 +61,56 @@ const Home = ({ data }: HomeProps): JSX.Element => {
 
       <section className={s.firstSection}>
         <Title tag="h1" className={s.firstSectionTitle}>
-          What Pros Are Saying...
+          TikTok Feeds
         </Title>
 
-        {typeof window !== 'undefined' && data?.length
-          ? data.map(video => {
-            return (
-              <div className={s.cards}>
-                <div className={s.videoCard}>
-                  <div className={s.video}>
-                    <video width={video.videoMeta.width} height={video.videoMeta.height} controls poster={video.covers.default}>
-                      <source src={video.videoUrl} type='video/mp4' />
-                      Тег video не поддерживается вашим браузером.
-                    </video>
-                  </div>
-                  
-                  <Link href="/">
-                    <a className={s.creator}>
-                      <Image src={video.authorMeta.avatar} alt={video.authorMeta.nickName} layout="fixed" width={76} height={76} />
+        {typeof window !== 'undefined' && Array.isArray(data) && data.map(video => {
+          return (
+            <div key={video.id} className={s.cards}>
+              <div className={s.videoCard}>
+                <video className={s.videoInner} width={video.videoMeta.width} height={video.videoMeta.height} controls poster={video.covers.default}>
+                  <source src={video.videoUrl} type='video/mp4' />
+                  Тег video не поддерживается вашим браузером.
+                </video>
+
+                <Link href="/">
+                  <a className={s.creator}>
+                    <Image className={s.creatorAvatar} src={video.authorMeta.avatar} alt={video.authorMeta.nickName} layout="fixed" width={76} height={76} />
+                    <Typography tag="span" className={s.creatorName}>
                       {video.authorMeta.nickName}
-                    </a>
-                  </Link>
+                    </Typography>
 
-                  <Typography tag="p" className={s.videoText}>
-                    {video.text}
-                  </Typography>
-                  {video?.hashtags?.length &&
-                    <div className={s.hashTags}>
-                      {video.hashtags.map((tag: Hashtag) => {
-                        return (
-                          <Typography tag="span" data-id={tag.id} className={s.hashTag}>
-                            #{tag.name}
-                          </Typography>
+                  </a>
+                </Link>
 
-                        )
-                      })}
-                    </div>}
+                <Typography tag="p" className={s.videoText}>
+                  {video.text}
+                </Typography>
+                {Boolean(video?.hashtags?.length) &&
+                  <div className={s.hashTags}>
+                    {video.hashtags.map((tag: Hashtag) => {
+                      return (
+                        <Typography key={tag.id} tag="span" data-id={tag.id} className={s.hashTag}>
+                          #{tag.name}
+                        </Typography>
+                      )
+                    })}
+                  </div>}
 
-                  <Typography tag="p" className={s.comments}>
-                    comments
-                  </Typography>
-                  <Typography tag="p" className={s.likes}>
-                    likes
-                  </Typography>
-                </div>
-
+                <Typography tag="p" className={s.comments}>
+                  Comments: {video.commentCount}
+                </Typography>
+                <Typography tag="p" className={s.likes}>
+                  Likes: {video.diggCount}
+                </Typography>
               </div>
-            );
-          })
-          : 'Loading...'
-        }
+
+            </div>
+          );
+        })}
+
+        {typeof window !== 'undefined' && (typeof data === 'string' || data.length === 0) && [1, 2, 3, 4].map((skeletm, index) => <Skeleton key={index} />)}
+
 
       </section>
 
