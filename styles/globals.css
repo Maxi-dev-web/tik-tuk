@@ -7,11 +7,11 @@ body {
 }
 
 :root {
-	--primary: #431ba1;
+	--primary: #431BA1;
 	--text-primary-color: #212353;
 	--text-white-color: #FBFBFB;
 	--orange: #FE805C;
-	--primary-light: #6f44e6;
+	--primary-light: #6F44E6;
 }
 
 a {

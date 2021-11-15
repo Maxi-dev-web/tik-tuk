@@ -9,6 +9,7 @@
 		"allowJs": false,
 		"noImplicitAny": false,
 		"skipLibCheck": true,
+		"strictNullChecks": false,
 		"strict": true,
 		"strictPropertyInitialization": false,
 		"forceConsistentCasingInFileNames": true,

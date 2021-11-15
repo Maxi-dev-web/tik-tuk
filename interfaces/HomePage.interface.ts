@@ -69,3 +69,7 @@ export interface iVideo {
 	hashtags: Hashtag[];
 	effectStickers: any[];
 }
+
+export interface iCustomError {
+	message: string;
+}
