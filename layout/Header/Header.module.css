@@ -21,9 +21,10 @@
 
 	color: var(--text-white-color);
 
+	font-size: 24px;
+
 	font-weight: 700;
 	font-style: 21px;
-	font-size: 24px;
 }
 
 .logo {

@@ -14,28 +14,38 @@
 .firstSection {
 
 }
+
 .error {
-	font-size: 24px;
-	border: 1px solid red;
 	padding: 10px;
+
+	border: 1px solid red;
+
+	font-size: 24px;
 }
+
 .paginations {
 	display: flex;
-	max-width: 500px;
 	align-items: center;
-	justify-content: center;
 	flex-wrap: wrap;
+	justify-content: center;
+
 	width: 100%;
+	max-width: 500px;
 	margin: 10px auto 30px;
 }
+
 .pager {
 	all: unset;
-	padding: 5px 10px;
-	font-size: 16px;
-	background-color: rgba(0, 0, 0, 0.4);
 	margin: 0 8px 8px 8px;
+	padding: 5px 10px;
+
 	cursor: pointer;
+
+	background-color: rgba(0, 0, 0, 0.4);
+
+	font-size: 16px;
 }
+
 .firstSectionTitle {
 	margin-bottom: 30px;
 

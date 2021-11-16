@@ -23,23 +23,20 @@ const options = {
 };
 
 const Home = ({ data = [], error }: HomeProps): JSX.Element => {
-  console.log('data: ', data);
   const router = useRouter();
   const elementScrollToRef = useRef<HTMLDivElement>();
   const [videoData, setVideoData] = useState<iVideo[]>(data)
   const [errorMessage, setErrorMessage] = useState<iCustomError | undefined | null>(error)
   const [currentPage, setSetCurrentPage] = useState<string | string[]>('1')
   const [isFetching, setIsFetching] = useState<boolean>(false)
-  const limitPerPage: number = 5;
+  const limitPerPage: number | string = process.env.NEXT_PUBLIC_POSTS_PER_PAGE_LIMIT || 30;
   let limit: number | null = null;
 
   if (Array.isArray(currentPage)) {
-    limit = Number.parseInt(currentPage[0]) * limitPerPage;
+    limit = Number.parseInt(currentPage[0]) * (typeof limitPerPage === 'string' ? Number.parseInt(limitPerPage) : limitPerPage);
   } else {
-    limit = Number.parseInt(currentPage) * limitPerPage;
+    limit = Number.parseInt(currentPage) * (typeof limitPerPage === 'string' ? Number.parseInt(limitPerPage) : limitPerPage);
   }
-
-  console.log(limit);
 
   const handlePaginate = (page: number) => {
     router.push(`?page=${page}`)
@@ -54,7 +51,7 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
         url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
         headers: {
           'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-          'x-rapidapi-key': 'bb16c31f41msha963be782f09779p17b3aajsn9aff381a0b1c'
+          'x-rapidapi-key': '1f11eaebb7msh9111e91cfcc77cep146b1ajsn94dd27bf2bc1'
         }
       });
       setVideoData(data)
@@ -69,13 +66,12 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   }
 
   useEffect(() => {
-    setSetCurrentPage(router.query?.page ?? '1')
-  }, [router.query])
-
-  useEffect(() => {
-    // paginatePosts(limit);
+    paginatePosts(limit);
   }, [currentPage])
 
+  useEffect(() => {
+    setSetCurrentPage(router.query?.page ?? '1')
+  }, [router.query])
 
   useEffect(() => {
     if (elementScrollToRef?.current) {
@@ -144,9 +140,6 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
           );
         })}
 
-        {/* {typeof window !== 'undefined' && (errorMessage?.message === undefined && videoData.length === 0) && (
-          [1, 2, 3, 4].map((skeletm, index) => <Skeleton key={index} />)
-        )} */}
         {typeof window !== 'undefined' && errorMessage?.message?.length && (
           <div className={s.error}><Typography tag="p">{errorMessage.message}, please wait some minutes and reload a page</Typography></div>
         )}
@@ -177,15 +170,15 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
 
 
 export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async ({ params }) => {
-
+  const limit = process.env.NEXT_PUBLIC_POSTS_PER_PAGE_LIMIT || 30
 
   try {
     const { data } = await axios.request<iVideo[]>({
       method: 'GET',
-      url: 'https://tiktok33.p.rapidapi.com/trending/feed?limit=5',
+      url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
       headers: {
         'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-        'x-rapidapi-key': 'bb16c31f41msha963be782f09779p17b3aajsn9aff381a0b1c'
+        'x-rapidapi-key': '1f11eaebb7msh9111e91cfcc77cep146b1ajsn94dd27bf2bc1'
       }
     });
     return {
