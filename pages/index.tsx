@@ -71,7 +71,7 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
 
   useEffect(() => {
     setSetCurrentPage(router.query?.page ?? '1')
-  }, [router.query])
+  }, [router.query?.page])
 
   useEffect(() => {
     if (elementScrollToRef?.current) {
