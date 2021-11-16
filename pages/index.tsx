@@ -51,7 +51,7 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
         url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
         headers: {
           'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-          'x-rapidapi-key': '1f11eaebb7msh9111e91cfcc77cep146b1ajsn94dd27bf2bc1'
+          'x-rapidapi-key': '6053078c94msh1b3f02062de45f0p1902d4jsna88432103b5b'
         }
       });
       setVideoData(data)
@@ -178,7 +178,7 @@ export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async (
       url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
       headers: {
         'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-        'x-rapidapi-key': '1f11eaebb7msh9111e91cfcc77cep146b1ajsn94dd27bf2bc1'
+        'x-rapidapi-key': '6053078c94msh1b3f02062de45f0p1902d4jsna88432103b5b'
       }
     });
     return {
