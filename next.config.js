@@ -10,6 +10,7 @@ module.exports = {
       "p77-sign-sg-lite.tiktokcdn.com",
       "p19-sign.tiktokcdn-us.com",
       "p77-sign-sg.tiktokcdn.com",
+      "p58-sign-sg.tiktokcdn.com",
     ],
   },
   webpack(config, options) {

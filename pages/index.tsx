@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import type { GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
@@ -30,6 +30,7 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   const [currentPage, setSetCurrentPage] = useState<string | string[]>('1')
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const limitPerPage: number | string = process.env.NEXT_PUBLIC_POSTS_PER_PAGE_LIMIT || 30;
+  const page = useCallback(() => router.query?.page, [router.query])
   let limit: number | null = null;
 
   if (Array.isArray(currentPage)) {
@@ -44,20 +45,19 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
 
   const paginatePosts = async (limit: number) => {
     setIsFetching(true)
-
+    setVideoData([])
     try {
       const { data } = await axios.request<iVideo[]>({
         method: 'GET',
         url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
         headers: {
           'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-          'x-rapidapi-key': '6053078c94msh1b3f02062de45f0p1902d4jsna88432103b5b'
+          'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66'
         }
       });
       setVideoData(data)
       setErrorMessage(null)
     } catch (e) {
-      setVideoData([])
       setErrorMessage({ message: `Some error occurred while pagingating with code ${e}` })
     } finally {
       setIsFetching(false)
@@ -70,8 +70,8 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   }, [currentPage])
 
   useEffect(() => {
-    setSetCurrentPage(router.query?.page ?? '1')
-  }, [router.query?.page])
+    setSetCurrentPage(page ?? '1')
+  }, [page])
 
   useEffect(() => {
     if (elementScrollToRef?.current) {
@@ -178,7 +178,7 @@ export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async (
       url: `https://tiktok33.p.rapidapi.com/trending/feed?limit=${limit}`,
       headers: {
         'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
-        'x-rapidapi-key': '6053078c94msh1b3f02062de45f0p1902d4jsna88432103b5b'
+        'x-rapidapi-key': 'c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66'
       }
     });
     return {
