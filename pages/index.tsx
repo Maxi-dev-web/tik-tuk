@@ -182,14 +182,16 @@ export const getStaticProps: GetStaticProps<HomeProps, ParsedUrlQuery> = async (
       }
     });
     return {
-      props: { data }
+      props: { data },
+      revalidate: 1,
     }
   } catch (e) {
     const error = {
       message: `Some error ocuured ${e}`
     }
     return {
-      props: { error }
+      props: { error },
+      revalidate: 1,
     }
   }
 
