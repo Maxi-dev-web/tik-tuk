@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import type { GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Image from 'next/image';
@@ -27,12 +27,11 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   const elementScrollToRef = useRef<HTMLDivElement>();
   const [videoData, setVideoData] = useState<iVideo[]>(data)
   const [errorMessage, setErrorMessage] = useState<iCustomError | undefined | null>(error)
-  const [currentPage, setSetCurrentPage] = useState<string | string[]>('1')
+  const [currentPage, setSetCurrentPage] = useState<string | string[]>(router.query?.page ?? '1')
   const [isFetching, setIsFetching] = useState<boolean>(false)
   const limitPerPage: number | string = process.env.NEXT_PUBLIC_POSTS_PER_PAGE_LIMIT || 30;
-  const page = useCallback(() => router.query?.page, [router.query])
   let limit: number | null = null;
-
+  
   if (Array.isArray(currentPage)) {
     limit = Number.parseInt(currentPage[0]) * (typeof limitPerPage === 'string' ? Number.parseInt(limitPerPage) : limitPerPage);
   } else {
@@ -40,7 +39,7 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   }
 
   const handlePaginate = (page: number) => {
-    router.push(`?page=${page}`)
+    router.push(`?page=${page}`);
   }
 
   const paginatePosts = async (limit: number) => {
@@ -66,12 +65,12 @@ const Home = ({ data = [], error }: HomeProps): JSX.Element => {
   }
 
   useEffect(() => {
-    paginatePosts(limit);
-  }, [currentPage])
+    setSetCurrentPage(router.query?.page ?? '1');
+  }, [router.query])
 
   useEffect(() => {
-    setSetCurrentPage(page ?? '1')
-  }, [page])
+    paginatePosts(limit);
+  }, [currentPage])
 
   useEffect(() => {
     if (elementScrollToRef?.current) {
