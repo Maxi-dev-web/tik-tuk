@@ -11,9 +11,6 @@
 	width: 100%;
 }
 
-.firstSection {
-
-}
 
 .error {
 	padding: 10px;
@@ -190,18 +187,11 @@
 		transform: translateX(0);
 	}
 
-	.videoCard {
-		// padding: 26px 15px 35px;
-	}
 }
 
 @media (max-width: 576px) {
 	.title {
 		font-size: 48px;
-	}
-
-	.firstSection {
-
 	}
 
 	.cards {

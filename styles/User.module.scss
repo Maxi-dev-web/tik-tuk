@@ -1,0 +1,81 @@
+.container {
+	width: 100%;
+}
+
+.videoText {
+	margin-bottom: 10px;
+}
+
+.comments {
+	margin-bottom: 10px;
+}
+
+.videoCard {
+	padding-top: 20px;
+	padding-bottom: 0;
+}
+
+.userContainer {
+	display: flex;
+	flex-direction: column;
+
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		margin-bottom: 20px;
+	}
+
+	.avatarWrapper {
+		display: flex;
+		align-items: center;
+
+		margin-bottom: 25px;
+	}
+
+	.avatar {
+	}
+
+	.userName {
+		display: flex;
+		align-items: center;
+
+		margin-left: 20px;
+
+		font-size: 28px;
+	}
+
+	.verificationIcon {
+		display: inline-flex;
+
+		margin-left: 10px;
+	}
+
+	.signature {
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	.statsWrapper {
+		margin-bottom: 50px;
+	}
+
+	.stats {
+		display: flex;
+
+		margin-bottom: 8px;
+
+		color: rgb(9, 0, 22);
+
+		font-size: 18px;
+		font-weight: 500;
+	}
+}
+
+.error {
+	padding: 10px;
+
+	border: 1px solid red;
+
+	font-size: 24px;
+}
